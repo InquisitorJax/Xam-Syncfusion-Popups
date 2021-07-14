@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ViewCell x:Class="GettingStartedPicker.View.TimeEditViewCell"
+          xmlns="http://xamarin.com/schemas/2014/forms"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          xmlns:view="clr-namespace:GettingStartedPicker.View"
+          mc:Ignorable="d">
+	<ViewCell.View>
+		<Grid>
+			<Grid.Resources>
+				<view:SelectedTimeToDateTimeConverter x:Key="std" />
+				<view:NullableDateTimeToTimeStringConverter x:Key="ndt" />
+			</Grid.Resources>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<StackLayout Orientation="Horizontal">
+				<Label HeightRequest="45"
+				       HorizontalOptions="Center"
+				       Text="From Time"
+				       VerticalOptions="Center"
+				       WidthRequest="45">
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer Tapped="From_Tapped" />
+					</Label.GestureRecognizers>
+
+				</Label>
+				<Label FontSize="28"
+				       HorizontalTextAlignment="Start"
+				       Text="{Binding FromTime, StringFormat='{0:hh:mm tt}'}"
+				       VerticalOptions="Center"
+				       VerticalTextAlignment="Center" />
+
+				<view:SimpleTimePicker x:Name="_fromTimePicker"
+				                       ColumnHeaderHeight="40"
+				                       EnableLooping="True"
+				                       HorizontalOptions="Center"
+				                       PickerHeight="300"
+				                       PickerMode="Dialog"
+				                       PickerWidth="300"
+				                       SelectedItem="{Binding FromTime, Mode=TwoWay, Converter={StaticResource std}}"
+				                       SelectedItemFontSize="48"
+				                       SelectedItemTextColor="Orange"
+				                       ShowColumnHeader="True"
+				                       UnSelectedItemFontSize="48"
+				                       VerticalOptions="Center" />
+			</StackLayout>
+			<Label Grid.Column="1"
+			       Margin="10"
+			       FontSize="Large"
+			       HorizontalTextAlignment="Center"
+			       Text="-"
+			       VerticalOptions="Center" />
+			<StackLayout Grid.Column="2" Orientation="Horizontal">
+				<Label HeightRequest="45"
+				       HorizontalOptions="Center"
+				       Text="To Time"
+				       VerticalOptions="Center"
+				       WidthRequest="45">
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer Tapped="ToTime_Tapped" />
+					</Label.GestureRecognizers>
+				</Label>
+
+				<Label FontSize="28"
+				       HorizontalTextAlignment="Start"
+				       Text="{Binding ToTime, Converter={StaticResource ndt}}"
+				       VerticalOptions="Center"
+				       VerticalTextAlignment="Center" />
+
+				<view:SimpleTimePicker x:Name="_toTimePicker"
+				                       ColumnHeaderHeight="40"
+				                       EnableLooping="True"
+				                       HorizontalOptions="Center"
+				                       PickerHeight="300"
+				                       PickerMode="Dialog"
+				                       PickerWidth="300"
+				                       SelectedItem="{Binding ToTime, Mode=TwoWay, Converter={StaticResource std}, ConverterParameter=toTime}"
+				                       SelectedItemFontSize="48"
+				                       SelectedItemTextColor="Orange"
+				                       ShowColumnHeader="True"
+				                       UnSelectedItemFontSize="48"
+				                       VerticalOptions="Center" />
+			</StackLayout>
+		</Grid>
+	</ViewCell.View>
+</ViewCell>

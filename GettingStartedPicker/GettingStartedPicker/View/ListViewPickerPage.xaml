@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="GettingStartedPicker.View.ListViewPickerPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:view="clr-namespace:GettingStartedPicker.View"
+             xmlns:xforms="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             mc:Ignorable="d">
+	<ContentPage.Content>
+		<Grid Margin="16">
+			<xforms:SfListView x:Name="_listView"
+			                   ItemSize="200"
+			                   ItemSpacing="0"
+			                   ItemsSource="{Binding ItemCollection}"
+			                   SelectionMode="None">
+				<xforms:SfListView.ItemTemplate>
+					<DataTemplate>
+						<view:TimeEditViewCell />
+					</DataTemplate>
+				</xforms:SfListView.ItemTemplate>
+
+			</xforms:SfListView>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>

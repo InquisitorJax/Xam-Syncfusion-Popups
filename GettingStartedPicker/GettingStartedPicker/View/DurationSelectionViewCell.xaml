@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ViewCell x:Class="GettingStartedPicker.View.DurationSelectionViewCell"
+          xmlns="http://xamarin.com/schemas/2014/forms"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:gettingstartedpicker="clr-namespace:GettingStartedPicker"
+          xmlns:view="clr-namespace:GettingStartedPicker.View">
+	<ViewCell.View>
+		<Frame Padding="0"
+		       CornerRadius="0"
+		       HasShadow="false">
+			<Grid BackgroundColor="White">
+				<Grid.Resources>
+					<view:SelectedTimeToTimeStampConverter x:Key="stt" />
+				</Grid.Resources>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+
+				<Grid>
+					<Label HeightRequest="50"
+					       HorizontalOptions="Center"
+					       Text="{Binding Name}" />
+				</Grid>
+
+				<Grid x:Name="_pickerGrid"
+				      Grid.Row="1"
+				      Margin="0,0,12,20"
+				      BackgroundColor="LightGray"
+				      IsVisible="{Binding IsSelected}">
+
+					<Grid.Resources>
+						<view:SelectedTimeToTimeStampConverter x:Key="stt" />
+					</Grid.Resources>
+
+					<gettingstartedpicker:DurationPicker BackgroundColor="Transparent"
+					                                     EnableLooping="True"
+					                                     HeightRequest="70"
+					                                     HorizontalOptions="Center"
+					                                     IsOpen="True"
+					                                     PickerHeight="70"
+					                                     PickerMode="Default"
+					                                     PickerWidth="180"
+					                                     SelectedItem="{Binding Time, Mode=TwoWay}"
+					                                     SelectedItemFontSize="36"
+					                                     SelectedItemTextColor="OrangeRed"
+					                                     ShowColumnHeader="False"
+					                                     UnSelectedItemFontSize="26"
+					                                     VerticalOptions="Start"
+					                                     WidthRequest="{Binding Width, Source={x:Reference _pickerGrid}}" />
+
+				</Grid>
+			</Grid>
+		</Frame>
+	</ViewCell.View>
+</ViewCell>

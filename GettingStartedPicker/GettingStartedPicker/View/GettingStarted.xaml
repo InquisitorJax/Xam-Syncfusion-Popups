@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="GettingStartedPicker.View.GettingStarted"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+	<ContentPage.Content>
+		<StackLayout VerticalOptions="Center">
+			<!--<Button Clicked="Handle_Clicked" Text="Load Picker" />
+			<Button Clicked="Handle_Clicked_1" Text="ListView with Inline Picker" />-->
+			<Button Clicked="Button_Clicked" Text="ListView with Picker" />
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

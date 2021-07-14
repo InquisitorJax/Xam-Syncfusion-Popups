@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/GettingStartedPicker/GettingStartedPicker/bin
+/GettingStartedPicker/GettingStartedPicker/obj
+/GettingStartedPicker/GettingStartedPicker/GettingStartedPicker.csproj.user
+/GettingStartedPicker/GettingStartedPicker.Android/bin/Debug
+/GettingStartedPicker/GettingStartedPicker.Android/obj
+/GettingStartedPicker/GettingStartedPicker.Android/GettingStartedPicker.Android.csproj.user
+/GettingStartedPicker/GettingStartedPicker.iOS/bin
+/GettingStartedPicker/GettingStartedPicker.iOS/obj
+/GettingStartedPicker/GettingStartedPicker.iOS/GettingStartedPicker.iOS.csproj.user
+/GettingStartedPicker/GettingStartedPicker.UWP/bin/x86/Debug
+/GettingStartedPicker/GettingStartedPicker.UWP/obj
+/GettingStartedPicker/GettingStartedPicker.UWP/GettingStartedPicker.UWP_TemporaryKey.pfx
+/GettingStartedPicker/GettingStartedPicker.UWP/GettingStartedPicker.UWP.csproj.user
