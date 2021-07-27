@@ -3,10 +3,18 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 	<ContentPage.Content>
-		<StackLayout VerticalOptions="Center">
-			<!--<Button Clicked="Handle_Clicked" Text="Load Picker" />
+		<Grid x:Name="_contentGrid">
+			<StackLayout VerticalOptions="Center">
+				<!--<Button Clicked="Handle_Clicked" Text="Load Picker" />
 			<Button Clicked="Handle_Clicked_1" Text="ListView with Inline Picker" />-->
-			<Button Clicked="Button_Clicked" Text="ListView with Picker" />
-		</StackLayout>
+				<Button Clicked="Button_Clicked" Text="ListView with Picker" />
+
+				<StackLayout Margin="0,35,0,0" Orientation="Horizontal">
+					<Switch x:Name="_showToastSwitch" />
+					<Label Text="Show Menu As Bottom Toast" />
+				</StackLayout>
+				<Button Clicked="ShowMenu_Clicked" Text="Show Popup Menu" />
+			</StackLayout>
+		</Grid>
 	</ContentPage.Content>
 </ContentPage>

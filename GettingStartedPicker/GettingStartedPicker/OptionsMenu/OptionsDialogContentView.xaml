@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView x:Class="GettingStartedPicker.OptionsMenu.OptionsDialogContentView"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Name="_optionsView">
+	<ContentView.Content>
+		<Grid RowDefinitions="*, Auto" RowSpacing="0">
+			<Grid>
+				<Grid.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding CloseCommand}" />
+				</Grid.GestureRecognizers>
+			</Grid>
+			<pancakeview:PancakeView x:Name="_optionsFrame"
+			                         Padding="16,16,16,0"
+			                         BackgroundColor="Orange"
+			                         CornerRadius="16"
+			                         HorizontalOptions="End"
+			                         WidthRequest="350">
+				<Grid>
+					<StackLayout BackgroundColor="{DynamicResource BlandAccentLight}"
+					             BindableLayout.ItemsSource="{Binding Options}"
+					             Spacing="1"
+					             VerticalOptions="Start">
+						<BindableLayout.ItemTemplate>
+							<DataTemplate>
+								<Grid Padding="0,8,0,8"
+								      BackgroundColor="{DynamicResource WindowBackground}"
+								      ColumnDefinitions="*, Auto">
+									<Label Margin="0,0,0,8"
+									       FontSize="18"
+									       Text="{Binding Text}"
+									       TextColor="{DynamicResource LabelTextColor}"
+									       VerticalOptions="Center"
+									       VerticalTextAlignment="Center" />
+									<Grid.GestureRecognizers>
+										<TapGestureRecognizer Command="{Binding BindingContext.OptionSelectedCommand, Source={x:Reference _optionsView}}" CommandParameter="{Binding Text}" />
+									</Grid.GestureRecognizers>
+								</Grid>
+							</DataTemplate>
+						</BindableLayout.ItemTemplate>
+					</StackLayout>
+				</Grid>
+				<pancakeview:PancakeView.Triggers>
+					<DataTrigger Binding="{Binding ShowToast}"
+					             TargetType="pancakeview:PancakeView"
+					             Value="True">
+						<Setter Property="CornerRadius" Value="16,16,0,0" />
+						<Setter Property="HorizontalOptions" Value="FillAndExpand" />
+						<Setter Property="Grid.Row" Value="1" />
+						<Setter Property="Padding" Value="16" />
+					</DataTrigger>
+				</pancakeview:PancakeView.Triggers>
+			</pancakeview:PancakeView>
+		</Grid>
+	</ContentView.Content>
+</ContentView>
